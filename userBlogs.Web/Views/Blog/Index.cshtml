@@ -1,0 +1,121 @@
+﻿
+
+@{
+    ViewData["Title"] = "Index";
+}
+@model userBlogs.Web.ViewModels.BlogIndexVM
+
+
+<div style="margin-top:25px;">
+    <button class="btn btn-light" ajax-poziv="da" ajax-rezultat="ajax" ajax-url="/blog/createedit?userId=@Model.userId">Create a new Blog</button>
+
+
+    <label>Start date:</label>
+    <input id="startdate" class="date_range_filter" placeholder="yy/mm/dd" />
+    <label>End date:</label>
+    <input id="enddate" class="date_range_filter" placeholder="yy/mm/dd" />
+
+
+
+    <table class="table table-striped" id="tableBlogs">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Summary</th>
+                <th>Publishing Date Time</th>
+                <th>Edit</th>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model.rows)
+            {
+                <tr>
+                    <td>@x.Title</td>
+                    <td>@x.summary</td>
+                    <td>@Html.DisplayFor(m => x.dateTime) </td>
+                    <td> <button class="btn btn-light" ajax-poziv="da" ajax-rezultat="ajax" ajax-url="/blog/createedit?userId=@Model.userId&blogId=@x.blogId">Edit</button> </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+
+<script>
+
+
+    var myDataTable = $('#tableBlogs').DataTable({
+        sDom: 't',
+        ordering: false,
+
+        columns: [{
+            title: 'Title',
+            data: 'title'
+        },
+        {
+            title: 'Summary',
+            data: 'summary'
+        },
+        {
+            title: 'Publishing Date Time',
+            data: 'Publishing Date Time'
+        },
+        {
+            title: 'Edit',
+            data: 'edit'
+        }]
+    });
+
+    $("#startdate").datepicker({
+        "dateFormat": "yy/mm/dd",
+        "onSelect": function (date) {  // This handler kicks off the filtering.
+            minDateFilter = new Date(date).getTime();
+            myDataTable.draw(); // Redraw the table with the filtered data.
+        }
+    }).keyup(function () {
+        minDateFilter = new Date(this.value).getTime();
+        myDataTable.draw();
+    });
+
+    $("#enddate").datepicker({
+        "dateFormat": "yy/mm/dd",
+        "onSelect": function (date) {
+            maxDateFilter = new Date(date).getTime();
+            myDataTable.draw();
+        }
+    }).keyup(function () {
+        maxDateFilter = new Date(this.value).getTime();
+        myDataTable.draw();
+    });
+
+    // The below code actually does the date filtering.
+    minDateFilter = "";
+    maxDateFilter = "";
+
+    $.fn.dataTableExt.afnFiltering.push(
+        function (oSettings, aData, iDataIndex) {
+            if (typeof aData._date == 'undefined') {
+                aData._date = new Date(aData[2]).getTime(); // Your date column is 3, hence aData[3].
+            }
+
+            if (minDateFilter && !isNaN(minDateFilter)) {
+                if (aData._date < minDateFilter) {
+                    return false;
+                }
+            }
+
+            if (maxDateFilter && !isNaN(maxDateFilter)) {
+                if (aData._date > maxDateFilter) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    );
+</script>

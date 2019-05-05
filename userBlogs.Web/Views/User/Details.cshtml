@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+}
+@model userBlogs.Web.ViewModels.UserDetails
+
+
+
+<style type="text/css">
+
+
+    div.wrapper {
+        position: relative;
+        border: 2px solid cornflowerblue;
+        margin-top: 20px;
+        padding: 20px 10px 10px;
+    }
+
+        div.wrapper label {
+            color: white;
+            line-height: 20px;
+            padding: 0px 5px;
+            position: absolute;
+            background-color: black;
+            /* Adjust these values to posiytion the title or label */
+            top: -10px;
+            left: 10px;
+        }
+</style>
+
+
+
+
+   
+<div class="detailsNav">
+    <i class="fas fa-user-tie fa-10x"></i>
+    <span class="font-size-lg">@Model.name </span>
+
+</div>
+
+<div class="detailsContainer">
+    <input type="text" disabled  value="@Model.firstName"  />    <input type="text" disabled  value="@Model.lastName" /> <label>@Model.age years</label>
+   
+</div>
+
+
+<div id="ajax">
+
+
+</div>
+
+<script>
+    $(document).ready(function() {
+        $.get("/blog/index/?userid=@Model.userId",
+            function(rezultat) {
+                $("#ajax").html(rezultat);
+
+            });
+    });
+</script>

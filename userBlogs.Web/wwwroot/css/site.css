@@ -1,0 +1,191 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+
+.headerLabel
+{
+    float:left !important;
+    color:white !important;
+    margin-left:-50%;
+}
+
+.navbarBorder
+{
+    border-bottom:2px solid black;
+}
+.navbarBorder label
+{
+    padding-left:12px;
+    padding-top:12px;
+}
+
+.navbarContainer {
+    float: right;
+    padding-right: 15px;
+    padding-top:15px;
+}
+    .navbarContainer a {
+         color:black !important;
+         font-size:15px;
+    }
+
+.headerBottom {
+    border-bottom: 2px solid black;
+}
+
+.detailsNav {
+    border-bottom: 2px solid black;
+   
+}
+.detailsNav img {
+    float: left !important;
+}
+    .detailsNav h4 {
+        position: relative !important;
+       
+    }
+
+
+
+{
+
+}
+    .detailsContainer
+    {
+        border:2px solid black;
+        margin-top:32px;
+    }
+
+        .detailsContainer input {
+            margin-left: 27px !important;
+            margin-top: 15px !important;
+            margin-bottom: 15px !important;
+            background-color:white;
+            border:1px solid black;
+        }
+        .loginForm
+        {
+            margin-top:40px;
+        }
+     .loginForm input
+     {
+         width:50%;
+     }
+        .loginForm input[type="submit"]
+        {
+            width:25%;
+        }
+
+.blog
+{
+    padding-top:30px !important;
+}
+
+
+#createEditForm label {
+    color: red;
+}
+
+#createEditForm input.error {
+    border: 2px solid red;
+}
+
+.text
+{
+    height:150px !important;
+}
+
+.netacanDatum{
+    border: 2px solid red !important;
+}
+
+#errorLabel span {
+    color: #a94442;
+}
+
+
+
+#summary{
+
+    height:55px;
+}
+
+#content {
+    height: 100px;
+    text-align: left;
+    vertical-align:text-top;
+}
+
+#createEditForm input[type="submit"]
+{
+    float:right;
+    width:12%;
+}
+
+.formContainer
+{
+    width:60%;
+   
+    margin-left:20%;
+    
+}
+
+#createEditForm a
+{
+    background-color:#343030!important;
+    color:white;
+    float:right;
+    margin-right:8px;
+   
+}
+
+#createEditForm a,button
+{
+    height:35px;
+   
+}
+.detailsContainer span
+{
+    font-size:50%;
+}
+
+.font-size-lg
+{
+    font-size:7rem;
+    margin-left:5%;
+}

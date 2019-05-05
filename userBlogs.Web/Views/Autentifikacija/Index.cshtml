@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    string error_poruka = (string)TempData["error_poruka"];
+    Layout = "_LayoutNelogirani";
+}
+@model userBlogs.Web.ViewModels.Login
+<div class="col-md-4 col-md-offset-4">
+    <div class="headerBottom">
+
+        <h2>Login / Blog Manager </h2>
+    </div>
+
+
+    <form asp-action="Login" class="loginForm">
+
+        <div class="form-group">
+
+            <div>
+                <input asp-for="username" class="form-control" placeholder="username" />
+                <span asp-validation-for="username" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <div>
+                <input asp-for="password" class="form-control" placeholder="password" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <input type="submit" class="form-control" value="Sign in" />
+
+    </form>
+
+    @if (error_poruka != null)
+    {
+        <br />
+        <div class="alert alert-danger">
+            @error_poruka
+        </div>
+    }
+</div>  

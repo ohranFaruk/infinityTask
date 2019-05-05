@@ -1,0 +1,10 @@
+C:\Users\Faruk\source\repos\userBlogs\userBlogs.Data\bin\Debug\netcoreapp2.1\userBlogs.Data.deps.json
+C:\Users\Faruk\source\repos\userBlogs\userBlogs.Data\bin\Debug\netcoreapp2.1\userBlogs.Data.runtimeconfig.json
+C:\Users\Faruk\source\repos\userBlogs\userBlogs.Data\bin\Debug\netcoreapp2.1\userBlogs.Data.runtimeconfig.dev.json
+C:\Users\Faruk\source\repos\userBlogs\userBlogs.Data\bin\Debug\netcoreapp2.1\userBlogs.Data.dll
+C:\Users\Faruk\source\repos\userBlogs\userBlogs.Data\bin\Debug\netcoreapp2.1\userBlogs.Data.pdb
+C:\Users\Faruk\source\repos\userBlogs\userBlogs.Data\obj\Debug\netcoreapp2.1\userBlogs.Data.csproj.CoreCompileInputs.cache
+C:\Users\Faruk\source\repos\userBlogs\userBlogs.Data\obj\Debug\netcoreapp2.1\userBlogs.Data.AssemblyInfoInputs.cache
+C:\Users\Faruk\source\repos\userBlogs\userBlogs.Data\obj\Debug\netcoreapp2.1\userBlogs.Data.AssemblyInfo.cs
+C:\Users\Faruk\source\repos\userBlogs\userBlogs.Data\obj\Debug\netcoreapp2.1\userBlogs.Data.dll
+C:\Users\Faruk\source\repos\userBlogs\userBlogs.Data\obj\Debug\netcoreapp2.1\userBlogs.Data.pdb

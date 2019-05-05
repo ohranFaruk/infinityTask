@@ -1,0 +1,64 @@
+﻿@using userBlogs.Data.Models
+@using userBlogs.Web.Helpers
+@using Microsoft.AspNetCore.Http
+
+@{
+
+    KorisnickiNalog user = Context.GetLogiraniKorisnik();
+
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - userBlogs.Web</title>
+
+
+    <link rel="stylesheet" href="/css/site.css" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/datatables.min.css" />
+
+
+    <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+
+
+
+    <script type="application/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="application/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="application/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <script src="~/JavaScript.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+    <script type="application/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top navbarBorder">
+        <label>Blog Manager V1 </label>
+
+        <div class="navbarContainer">
+            <a href="/Autentifikacija/Logout">Hey Admin ! - Logout</a>
+        </div>
+
+    </nav>
+
+    <partial name="_CookieConsentPartial" />
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+    </div>
+
+</body>
+</html>

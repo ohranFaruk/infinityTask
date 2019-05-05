@@ -1,0 +1,170 @@
+﻿
+@{
+    ViewData["Title"] = "CreateEdit";
+}
+@model userBlogs.Web.ViewModels.BlogAddVM
+
+<h2>Create/Edit</h2>
+
+
+
+    <script>
+        $().ready(function () {
+
+            $("#createEditForm").validate({
+                onfocusout: function (element) {
+                    $(element).valid();
+                },
+                rules: {
+                    Title: {
+                        required: true,
+                        maxlength: 64
+                    },
+                    Summary: {
+                        required: true,
+                        maxlength: 350
+                    },
+                    Content:
+                    {
+                        required: true,
+                        maxlength: 3500
+                    }
+
+
+                },
+                messages: {
+
+                    Title: {
+                        required: "Field is required",
+                        maxlength: "Maximum length is 64"
+                    },
+                    Summary: {
+                        required: "Field is required",
+                        maxlength: "Maximum length is 350"
+                    },
+                    Content:
+                    {
+                        required: "Field is required",
+                        maxlength: "Maximum length is 3500"
+
+                    }
+
+                }
+            });
+        });
+
+
+
+
+        var label = document.createElement("label");
+        var node = document.createTextNode("Date cannot be in the past");
+        var errorLabel = document.getElementById("errorLabel");
+        label.appendChild(node);
+
+
+
+
+
+        function checkDate() {
+
+
+
+
+
+                var selectedText = document.getElementById("Datum").value;
+                var selectedDate = new Date(selectedText);
+
+            var now = new Date();
+            now.setHours(0, 0, 0, 0);
+            selectedDate.setHours(0, 0, 0, 0);
+
+                if (selectedDate < now) {
+
+                    datumProvjera = false;
+
+
+                } else {
+                    datumProvjera = true;
+                }
+
+                if (!datumProvjera) {
+
+                    $("#Datum").addClass("netacanDatum");
+
+                    errorLabel.appendChild(label);
+
+                } else {
+
+
+                    $("#Datum").removeClass("netacanDatum");
+
+                    errorLabel.removeChild(label);
+                }
+
+          
+                return datumProvjera;
+
+
+
+    
+
+
+          
+
+        }
+
+
+
+
+</script>
+
+
+
+<form asp-action="Snimi" asp-controller="Blog" id="createEditForm">
+    <div class="formContainer pl-3">
+        <div class="form-group">
+
+            <input type="hidden" name="userId" value="@Model.userId" />
+            <input type="hidden" name="blogId" value="@Model.blogId" />
+
+            <div>
+                <input name="Title" value="@Model.Title" class="form-control" placeholder="Title" />
+               
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <div>
+                <input name="Summary" value="@Model.summary" class="form-control" placeholder="Summary" id="summary" />
+
+               
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+
+            <div>
+                <textarea name="Content" id="content" cols="95">@Model.Content </textarea> 
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+
+            <div>
+                <input class="form-control" type="datetime" value="@Model.datum" id="Datum" name="Datum" onchange="checkDate()" />
+
+                <div id="errorLabel"> </div>
+
+            </div>
+        </div>
+
+        <input type="submit" class="btn btn-light" value="Save" onclick="return checkDate() " />
+        <a href="/user/details?userId=@Model.userId" class="btn btn-dark" >Close</a>
+    </div>
+</form>
+
